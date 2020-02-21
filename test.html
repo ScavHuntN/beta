@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>ScavHunt&#946 Test</title>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMrtFV5Y4rlmSOHT01hKUOCRhOLcCCkPY&callback=initMap">
+	</script>
+</head>
+<body>
+<!--AIzaSyBMrtFV5Y4rlmSOHT01hKUOCRhOLcCCkPY-->
+BetaMap
+<div id="betaMap"></div>
+<script>
+    var beta_map;
+	var all_markers = [];
+	var data = `-34.949859 138.635354 icons/home.svg
+	-34.946995 138.635387 icons/red_team.svg
+	-34.950079 138.635068 icons/blue_team.svg
+	-34.949987 138.635064 icons/teal_team.svg
+	-34.946996 138.626960 icons/green_team.svg`;
+	var markers = data.split("\n");
+    function initMap() {
+		beta_map = new google.maps.Map(document.getElementById('betaMap'), {
+			zoom: 17,
+			center: {lat: -34.949241, lng: 138.635160}
+		});
+		for(var i=0; i < markers.length; i++) {
+			var marker_data = markers[i].trim();
+			marker_data = marker_data.split(" ");
+			var latitude = marker_data[0];
+			var longitude = marker_data[1];
+			var emoji = marker_data[2];
+			var marker_position = new google.maps.LatLng(latitude, longitude);
+			var marker = new google.maps.Marker({
+				position: marker_position,
+				map: beta_map,
+				icon: emoji
+			});
+			all_markers.push(marker);
+		}
+		if (navigator.geolocation) {
+			navigator.geolocation.watchPosition(set_my_position);
+		}
+		else {
+			alert("Geolocation doesn't work in your browser");
+		}
+	}
+	function set_my_position(position) {
+		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		var player = new google.maps.Marker({
+			position: pos,
+			map: beta_map,
+			icon: "icons/player.png"
+			old_position.setMap(null);
+			old_position = marker;
+		});
+	}
+</script>
+</body>
+</html>
