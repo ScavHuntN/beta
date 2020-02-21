@@ -1,2 +1,2 @@
-# beta
+# ScavHuntβ
 Online testing for ScavHunt
