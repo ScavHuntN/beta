@@ -20,6 +20,7 @@ BetaMap
 		position: abcdefgthislol,
 		map: beta_map,
 		icon: "icons/player.svg"
+		});
 	var data = `-34.949859 138.635354 icons/home.svg
 	-34.946995 138.635387 icons/red_team.svg
 	-34.950079 138.635068 icons/blue_team.svg
@@ -45,7 +46,6 @@ BetaMap
 			});
 			all_markers.push(marker);
 		}
-		});
 		if (navigator.geolocation) {
 			navigator.geolocation.watchPosition(set_my_position);
 		}
