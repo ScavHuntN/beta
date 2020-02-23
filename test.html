@@ -13,14 +13,8 @@ BetaMap
 <div id="betaMap"></div>
 <script>
     var beta_map;
-	//var old_position;
+	var old_position;
 	var all_markers = [];
-	var abcdefgthislol = new google.maps.LatLng("-34.949241","138.635160");
-	var old_position = new google.maps.Marker({
-		position: abcdefgthislol,
-		map: beta_map,
-		icon: "icons/player.svg"
-		});
 	var data = `-34.949859 138.635354 icons/home.svg
 	-34.946995 138.635387 icons/red_team.svg
 	-34.950079 138.635068 icons/blue_team.svg
@@ -46,6 +40,12 @@ BetaMap
 			});
 			all_markers.push(marker);
 		}
+		var abcdefgthislol = new google.maps.LatLng("-34.949241","138.635160");
+		var old_position = new google.maps.Marker({
+			position: abcdefgthislol,
+			map: beta_map,
+			icon: "icons/player.svg"
+		});
 		if (navigator.geolocation) {
 			navigator.geolocation.watchPosition(set_my_position);
 		}
