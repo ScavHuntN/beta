@@ -43,7 +43,8 @@ BetaMap
 		var abcdefgthislol = new google.maps.LatLng("-34.949241","138.635160");
 		var old_position = new google.maps.Marker({
 			position: abcdefgthislol,
-			map: beta_map
+			map: beta_map,
+			icon: "icons/player.svg"
 		});
 		if (navigator.geolocation) {
 			navigator.geolocation.watchPosition(set_my_position);
